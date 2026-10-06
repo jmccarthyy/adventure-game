@@ -8,6 +8,7 @@ public class CharacterCreation {
     String playerName;
     String playerAnswer;
     boolean isHappy = false;
+    Integer gold = 0;
 
     //Create and fill out Character Stats HashMap:
     HashMap<String, Integer> charStats = new HashMap<>();
