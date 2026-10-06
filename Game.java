@@ -12,6 +12,8 @@ public class Game {
         String playerName;
         String playerAnswer;
         boolean isHappy = false;
+        Integer dice1 = (int)(Math.random()*6+1);
+        Integer dice2 = (int)(Math.random()*6+1);
 
         //Create and fill out Character Stats HashMap:
         HashMap<String, Integer> charStats = new HashMap<>();
@@ -95,16 +97,52 @@ public class Game {
                 System.out.println("This means your Luck stat is: " + charStats.get("Luck"));
                 //Happy with your rolls? If not, do them again
 
-            } else if(playerAnswer.equals("p")){
+            } else if(playerAnswer.equals("r")){
                 //Haven't started this one yet
                 System.out.println("So you want me to roll the dice?");
                 System.out.println("Perfect!");
                 System.out.println("Don't worry - it's completely random! (I promise)");
+
+                //Dice roll simulation here:
+                System.out.println("First, let's roll for your Skill stat");
+                Integer skillDice = (int)(Math.random()* 6 + 1);
+                Integer skill = skillDice + 6;
+                System.out.println("You rolled a " + skillDice + ", which means your Skill stat is " + skill);
+                charStats.put("Skill", skill);
+
+                System.out.println("Next, let's roll for your Health stat");
+                Integer healthDiceOne = (int)(Math.random()* 6 + 1);
+                Integer healthDiceTwo = (int)(Math.random()* 6 + 1);
+                Integer health = (healthDiceOne + healthDiceTwo) + 12;
+                System.out.println("You rolled a " + healthDiceOne + " and a " + healthDiceTwo + ", which means your Health stat is " + health);
+                charStats.put("Health", health);
+
+                System.out.println("Next, let's roll for your Luck stat");
+                Integer luckDice = (int)(Math.random()* 6 + 1);
+                Integer luck = luckDice + 6;
+                System.out.println("You rolled a " + luckDice + ", which means your Skill stat is " + luck);
+                charStats.put("Luck", luck);
+
+                System.out.println("This means your stats are as follows:");
+                System.out.println("=================");
+                System.out.println("Your Health is " + health);
+                System.out.println("Your Skill is " + skill);
+                System.out.println("Your Luck is " + luck);
+                System.out.println("=================");
+
+                isHappy = true;
+
             } else{
                 //This one should be okay to just leave as is
                 System.out.println("That isn't an option I'm afraid!");
             }
         }
+
+
+        System.out.println("You have now created your character...");
+        System.out.println("Press enter to begin you journey...");
+        System.out.println("====================");
+
 
 
 
