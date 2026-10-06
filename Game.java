@@ -10,27 +10,30 @@ public class Game {
 
         String playerName;
         String playerAnswer;
+        boolean isHappy = false;
 
         System.out.println("Please enter your name brave traveller:");
 
-        playerName = myScanner.nextLine();
-
-        System.out.println("So your name is " + playerName + "?");
-
-        playerAnswer = myScanner.nextLine();
-
-
-    //need to find out how to make this code loop until the player is happy with their name
-        if(playerAnswer.equals("Y")){
-            System.out.println("Perfect!");
-        } 
-        else{
-            System.out.println("In that case, re-enter your name");
-
+    // Loop for player entering their name
+        while(isHappy == false){
             playerName = myScanner.nextLine();
+            System.out.println("So your name is " + playerName + "?");
+            System.out.println("=========");
+            System.out.println("Enter y if you're happy");
+            System.out.println("Enter anything else if you're unhappy");
 
-            return;
-        }
+            playerAnswer = myScanner.nextLine();
+
+            if(playerAnswer.equals("y")){
+                isHappy = true;
+                System.out.println("Perfect - welcome to your adventure, " + playerName);
+            } else{
+                System.out.println("Oh, that's not your name? My mistake! Please re-enter it:");
+            }
+
+        } 
+
+
 
     }   
 }
