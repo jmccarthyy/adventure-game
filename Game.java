@@ -200,7 +200,7 @@ public class Game {
         System.out.println("Press enter to begin your journey...");
         System.out.println("====================");
         myScanner.nextLine();
-        System.out.println(charStats);
+        
 
 
 
