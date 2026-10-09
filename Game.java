@@ -20,10 +20,9 @@ public class Game {
         Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"));
 
 
-        
+        Misc misc = new Misc();
 
-        
-
+        misc.characterCreated(player);
 
         System.out.println("You have now created your character...");
         System.out.println("Press enter to begin your journey...");

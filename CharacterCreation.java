@@ -170,20 +170,7 @@ public class CharacterCreation {
                 System.out.println("====================");
                 myScanner.nextLine();
 
-                System.out.println("This means your stats are as follows:");
-                System.out.println("=================");
-                System.out.println("Your Health is " + health);
-                System.out.println("Your Skill is " + skill);
-                System.out.println("Your Luck is " + luck);
-                System.out.println("=================");
-
                 isHappy = true;
-
-                System.out.println("Press enter to continue...");
-                System.out.println("====================");
-                myScanner.nextLine();
-
-                
 
             } else{
                 //This one should be okay to just leave as is
