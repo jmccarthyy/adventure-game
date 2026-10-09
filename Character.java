@@ -3,28 +3,17 @@ import java.util.HashMap;
 
 public class Character{
 
-    public void playerName(){
-        //
-    }
+    String name;
+    Integer playerHealth;
+    Integer playerSkill;
+    Integer playerLuck;
 
-    public void playerHealth(){
-        //
-    }
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck) {
+        this.name = name;
+        this.playerHealth = playerHealth;
+        this.playerSkill = playerSkill;
+        this.playerLuck = playerLuck;
 
-    public void playerSkill(){
-        //
-    }
-
-    public void playerLuck(){
-        //
-    }
-
-    public void playerGold(){
-        //
-    }
-
-    public void playerInventory(){
-        //
     }
 
 }
