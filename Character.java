@@ -8,14 +8,16 @@ public class Character{
     Integer playerSkill;
     Integer playerLuck;
     Integer gold;
+    Integer provisions;
     boolean isDead;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, boolean isDead) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, boolean isDead) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
         this.playerLuck = playerLuck;
         this.gold = gold;
+        this.provisions = provisions;
         this.isDead = isDead;
 
     }
@@ -29,6 +31,7 @@ public class Character{
         System.out.println("Your Skill is " + player.playerSkill);
         System.out.println("Your Luck is " + player.playerLuck);
         System.out.println("You have " + player.gold + " gold");
+        System.out.println("You have " + player.provisions + " provisions");
         System.out.println("=================");
         } else if(player.isDead == true){
             System.out.println("Oh no... You are dead...");

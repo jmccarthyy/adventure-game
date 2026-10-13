@@ -12,6 +12,8 @@ public class Misc {
         System.out.println("Your Health is " + player.playerHealth);
         System.out.println("Your Skill is " + player.playerSkill);
         System.out.println("Your Luck is " + player.playerLuck);
+        System.out.println("You have " + player.gold + " gold");
+        System.out.println("You have " + player.provisions + " provisions");
         System.out.println("=================");
 
         System.out.println("Press enter to continue...");

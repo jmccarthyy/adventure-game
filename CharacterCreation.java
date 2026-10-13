@@ -9,6 +9,7 @@ public class CharacterCreation {
     String playerAnswer;
     boolean isHappy = false;
     Integer gold = 0;
+    Integer provisions = 0;
     boolean isDead = false;
 
     //Create and fill out Character Stats HashMap:
