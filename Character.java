@@ -12,8 +12,10 @@ public class Character{
     Integer provisions;
     HashSet<String> inventory;
     boolean isDead;
+    String weaponName;
+    Integer weaponSkill;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead, String weaponName, Integer weaponSkill) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
@@ -22,11 +24,13 @@ public class Character{
         this.provisions = provisions;
         this.inventory = inventory;
         this.isDead = isDead;
+        this.weaponName = weaponName;
+        this.weaponSkill = weaponSkill;
 
     }
 
-    public void status(Character player){
-        if(player.isDead == false){
+    public void status(Character player, Weapon weapon){
+        if(!player.isDead){
         System.out.println("This is your status, as things stand:");
         System.out.println("=================");
         System.out.println("Your Name is " + player.name);
@@ -40,8 +44,13 @@ public class Character{
         } else if(!player.inventory.isEmpty()){
             System.out.println("Your inventory consists of" + player.inventory);
         }
+        if(weapon.name.isEmpty()){
+            System.out.println("You are unequipped");
+        } else if(!weapon.name.isEmpty()){
+            System.out.println("You have " + weapon.name + " equipped (This adds +" + weapon.addedSkill + " skill in combat)");
+        }
         System.out.println("=================");
-        } else if(player.isDead == true){
+        } else if(player.isDead){
             System.out.println("Oh no... You are dead...");
         }
 

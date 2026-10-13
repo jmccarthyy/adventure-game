@@ -14,8 +14,10 @@ public class Game {
 
         characterCreation.rollStats();
 
+        Weapon weapon = new Weapon(characterCreation.weaponName, characterCreation.weaponSkill);
+
         //New instance of Character class (uses the constructor):
-        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead);
+        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon.name, weapon.addedSkill);
 
         Misc misc = new Misc();
 
@@ -26,7 +28,7 @@ public class Game {
         System.out.println("====================");
         scanner.nextLine();
 
-        player.status(player);
+        player.status(player, weapon);
 
         Story story = new Story();
         
