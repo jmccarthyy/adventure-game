@@ -5,7 +5,7 @@ public class Story {
 
     Scanner storyScanner = new Scanner(System.in);
 
-    char storyAnswer;
+    String storyAnswer;
 
     public void storyIntro(Character player) {
         
@@ -19,7 +19,7 @@ public class Story {
         System.out.println("a). To open the wardrobe");
         System.out.println("b). To open the front door");
 
-        storyAnswer = myScanner.nextLine();
+        storyAnswer = storyScanner.nextLine();
 
         if(storyAnswer.equals("a")){
             //code - you get dressed, pick up your sword, colelct your 10 gold and put on your empty backpack
