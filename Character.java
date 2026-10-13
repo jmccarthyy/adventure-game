@@ -16,4 +16,6 @@ public class Character{
 
     }
 
+    //Add a class that prints the player's stats, including currnt healht, skill, luck, gold and inventory when the player types "i"
+
 }
