@@ -15,8 +15,7 @@ public class Game {
         characterCreation.rollStats();
 
         //New instance of Character class (uses the constructor):
-        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"));
-
+        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.isDead);
 
         Misc misc = new Misc();
 

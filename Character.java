@@ -7,12 +7,16 @@ public class Character{
     Integer playerHealth;
     Integer playerSkill;
     Integer playerLuck;
+    Integer gold;
+    boolean isDead;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, boolean isDead) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
         this.playerLuck = playerLuck;
+        this.gold = gold;
+        this.isDead = isDead;
 
     }
 

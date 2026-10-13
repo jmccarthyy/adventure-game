@@ -22,10 +22,10 @@ public class Story {
         storyAnswer = myScanner.nextLine();
 
         if(storyAnswer.equals("a")){
-        //code
+            //code - you get dressed, pick up your sword, colelct your 10 gold and put on your empty backpack
 
         } else if (storyAnswer.equals("b")){
-            //code
+            //code - a creature is outside but you die because you have no way to defend yourself
         }
 
     }
