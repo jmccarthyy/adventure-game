@@ -26,6 +26,8 @@ public class Game {
         System.out.println("====================");
         scanner.nextLine();
 
+        player.status()
+
         Story story = new Story();
         
         story.storyIntro(player);
