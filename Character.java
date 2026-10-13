@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Character{
 
@@ -9,15 +10,17 @@ public class Character{
     Integer playerLuck;
     Integer gold;
     Integer provisions;
+    HashSet<String> inventory;
     boolean isDead;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, boolean isDead) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
         this.playerLuck = playerLuck;
         this.gold = gold;
         this.provisions = provisions;
+        this.inventory = inventory;
         this.isDead = isDead;
 
     }
@@ -32,13 +35,16 @@ public class Character{
         System.out.println("Your Luck is " + player.playerLuck);
         System.out.println("You have " + player.gold + " gold");
         System.out.println("You have " + player.provisions + " provisions");
+        if(player.inventory.isEmpty()){
+            System.out.println("You have nothing in your inventory");
+        } else if(!player.inventory.isEmpty()){
+            System.out.println("Your inventory consists of" + player.inventory);
+        }
         System.out.println("=================");
         } else if(player.isDead == true){
             System.out.println("Oh no... You are dead...");
         }
 
     }
-
-    //Add a class that prints the player's stats, including currnt healht, skill, luck, gold and inventory when the player types "i"
 
 }

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class CharacterCreation {
 
@@ -11,6 +12,8 @@ public class CharacterCreation {
     Integer gold = 0;
     Integer provisions = 0;
     boolean isDead = false;
+
+    HashSet<String> inventory = new HashSet<>();
 
     //Create and fill out Character Stats HashMap:
     HashMap<String, Integer> charStats = new HashMap<>();
