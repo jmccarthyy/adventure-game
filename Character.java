@@ -34,16 +34,16 @@ public class Character{
         if(!player.isDead){
         System.out.println("This is your status, as things stand:");
         System.out.println("=================");
-        System.out.println("Your Name is " + player.name);
-        System.out.println("Your Health is " + player.playerHealth);
-        System.out.println("Your Skill is " + player.playerSkill);
-        System.out.println("Your Luck is " + player.playerLuck);
-        System.out.println("You have " + player.gold + " gold");
-        System.out.println("You have " + player.provisions + " provisions");
-        if(player.inventory.isEmpty()){
+        System.out.println("Your Name is " + this.name);
+        System.out.println("Your Health is " + this.playerHealth);
+        System.out.println("Your Skill is " + this.playerSkill);
+        System.out.println("Your Luck is " + this.playerLuck);
+        System.out.println("You have " + this.gold + " gold");
+        System.out.println("You have " + this.provisions + " provisions");
+        if(this.inventory.isEmpty()){
             System.out.println("You have nothing in your inventory");
         } else{
-            System.out.println("Your inventory consists of" + player.inventory);
+            System.out.println("Your inventory consists of" + this.inventory);
         }
         if(weapon.name.isEmpty()){
             System.out.println("You are unequipped");
@@ -51,7 +51,7 @@ public class Character{
             System.out.println("You have " + weapon.name + " equipped (This adds +" + weapon.addedSkill + " skill in combat)");
         }
         System.out.println("=================");
-        } else if(player.isDead){
+        } else if(this.isDead){
             System.out.println("Oh no... You are dead...");
         }
 
