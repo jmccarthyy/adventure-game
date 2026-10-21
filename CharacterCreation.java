@@ -12,8 +12,8 @@ public class CharacterCreation {
     Integer gold = 0;
     Integer provisions = 0;
     boolean isDead = false;
-    String weaponName;
-    Integer weaponSkill;
+    String weaponName = "";
+    Integer weaponSkill = 0;
 
     HashSet<String> inventory = new HashSet<>();
 

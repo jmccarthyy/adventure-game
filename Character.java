@@ -30,6 +30,7 @@ public class Character{
     }
 
     public void status(Character player, Weapon weapon){
+
         if(!player.isDead){
         System.out.println("This is your status, as things stand:");
         System.out.println("=================");
@@ -41,12 +42,12 @@ public class Character{
         System.out.println("You have " + player.provisions + " provisions");
         if(player.inventory.isEmpty()){
             System.out.println("You have nothing in your inventory");
-        } else if(!player.inventory.isEmpty()){
+        } else{
             System.out.println("Your inventory consists of" + player.inventory);
         }
         if(weapon.name.isEmpty()){
             System.out.println("You are unequipped");
-        } else if(!weapon.name.isEmpty()){
+        } else{
             System.out.println("You have " + weapon.name + " equipped (This adds +" + weapon.addedSkill + " skill in combat)");
         }
         System.out.println("=================");
