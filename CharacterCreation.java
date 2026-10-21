@@ -170,7 +170,7 @@ public class CharacterCreation {
                 Integer luckDice = (int)(Math.random()* 6 + 1);
                 Integer luck = luckDice + 6;
                 charStats.put("Luck", luck);
-                System.out.println("You rolled a " + luckDice + ", which means your Skill stat is " + luck);
+                System.out.println("You rolled a " + luckDice + ", which means your Luck stat is " + luck);
 
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");

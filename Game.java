@@ -28,15 +28,9 @@ public class Game {
         System.out.println("====================");
         scanner.nextLine();
 
-        player.status(player, weapon);
-
         Story story = new Story();
         
         story.storyIntro(player);
-        
-
-
-
 
     }   
 }

@@ -22,7 +22,15 @@ public class Story {
         storyAnswer = storyScanner.nextLine();
 
         if(storyAnswer.equals("a")){
-            //code - you get dressed, pick up your sword, colelct your 10 gold and put on your empty backpack
+            //code - you get dressed, pick up your sword, collect your 10 gold and put on your empty backpack
+            System.out.println("You walk over to the wardrobe and open it...");
+            System.out.println("You find clothes, a sword, an empty leather bag and a small bag containing 10 gold pieces");
+            System.out.println("====================");
+            // here, need to add the gold pieces and weapon to your character
+            player.gold = 10;
+            System.out.println("Press enter to continue...");
+            System.out.println("====================");
+            storyScanner.nextLine();
 
         } else if (storyAnswer.equals("b")){
             //code - a creature is outside but you die because you have no way to defend yourself
