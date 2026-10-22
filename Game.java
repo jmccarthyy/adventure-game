@@ -14,10 +14,10 @@ public class Game {
 
         characterCreation.rollStats();
 
-        Weapon weapon = new Weapon(characterCreation.weaponName, characterCreation.weaponSkill);
+        Weapon weapon = new Weapon("", 0);
 
         //New instance of Character class (uses the constructor):
-        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon.name, weapon.addedSkill);
+        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon);
 
         Misc misc = new Misc();
 

@@ -12,10 +12,9 @@ public class Character{
     Integer provisions;
     HashSet<String> inventory;
     boolean isDead;
-    String weaponName;
-    Integer weaponSkill;
+    Weapon weapon;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead, String weaponName, Integer weaponSkill) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead, Weapon weapon) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
@@ -24,14 +23,13 @@ public class Character{
         this.provisions = provisions;
         this.inventory = inventory;
         this.isDead = isDead;
-        this.weaponName = weaponName;
-        this.weaponSkill = weaponSkill;
+        this.weapon = weapon;
 
     }
 
-    public void status(Character player, Weapon weapon){
+    public void status(){
 
-        if(!player.isDead){
+        if(!this.isDead){
         System.out.println("This is your status, as things stand:");
         System.out.println("=================");
         System.out.println("Your Name is " + this.name);
@@ -45,10 +43,10 @@ public class Character{
         } else{
             System.out.println("Your inventory consists of" + this.inventory);
         }
-        if(weapon.name.isEmpty()){
+        if(this.weapon.name.isEmpty()){
             System.out.println("You are unequipped");
         } else{
-            System.out.println("You have " + weapon.name + " equipped (This adds +" + weapon.addedSkill + " skill in combat)");
+            System.out.println("You have " + this.weapon.name + " equipped (This adds +" + this.weapon.addedSkill + " skill in combat)");
         }
         System.out.println("=================");
         } else if(this.isDead){
