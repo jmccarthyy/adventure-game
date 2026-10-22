@@ -27,7 +27,8 @@ public class Story {
             System.out.println("You find clothes, a sword, an empty leather bag and a small bag containing 10 gold pieces");
             System.out.println("====================");
             // here, need to add the gold pieces and weapon to your character
-            player.gold = 10;
+            player.gold += 10;
+            player.weapon = new Weapon("Sword", 1);
             System.out.println("Press enter to continue...");
             System.out.println("====================");
             storyScanner.nextLine();
