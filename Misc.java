@@ -20,6 +20,4 @@ public class Misc {
         System.out.println("====================");
         oneScanner.nextLine();
     }
-
-
 }
