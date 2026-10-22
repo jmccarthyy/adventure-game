@@ -43,7 +43,12 @@ public class Character{
         } else{
             System.out.println("Your inventory:");
             for(Item item : this.inventory){
-                System.out.println("- " + item.name);
+                if(item == this.weapon){
+                    System.out.println("- " + item.name + " (Currently Equipped)");
+                }
+                else{
+                    System.out.println("- " + item.name);
+                }
             }
         }
         if(this.weapon.name.isEmpty()){
