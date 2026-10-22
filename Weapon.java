@@ -1,10 +1,9 @@
-public class Weapon{
+public class Weapon extends Item{
 
-    String name;
     Integer addedSkill;
 
     public Weapon(String name, Integer addedSkill) {
-        this.name = name;
+        super(name);
         this.addedSkill = addedSkill;
     }
 }

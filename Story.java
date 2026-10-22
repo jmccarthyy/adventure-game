@@ -29,6 +29,7 @@ public class Story {
             // here, need to add the gold pieces and weapon to your character
             player.gold += 10;
             player.weapon = new Weapon("Sword", 1);
+            player.inventory.add(new Potion("a Potion of Healing", 10));
             System.out.println("Press enter to continue...");
             System.out.println("====================");
             storyScanner.nextLine();

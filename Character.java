@@ -10,11 +10,11 @@ public class Character{
     Integer playerLuck;
     Integer gold;
     Integer provisions;
-    HashSet<String> inventory;
+    HashSet<Item> inventory;
     boolean isDead;
     Weapon weapon;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<String> inventory, boolean isDead, Weapon weapon) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<Item> inventory, boolean isDead, Weapon weapon) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
@@ -41,7 +41,10 @@ public class Character{
         if(this.inventory.isEmpty()){
             System.out.println("You have nothing in your inventory");
         } else{
-            System.out.println("Your inventory consists of" + this.inventory);
+            System.out.println("Your inventory:");
+            for(Item item : this.inventory){
+                System.out.println("- " + item.name);
+            }
         }
         if(this.weapon.name.isEmpty()){
             System.out.println("You are unequipped");

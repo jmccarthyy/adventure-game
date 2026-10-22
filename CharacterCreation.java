@@ -13,7 +13,7 @@ public class CharacterCreation {
     Integer provisions = 0;
     boolean isDead = false;
 
-    HashSet<String> inventory = new HashSet<>();
+    HashSet<Item> inventory = new HashSet<Item>();
 
     //Create and fill out Character Stats HashMap:
     HashMap<String, Integer> charStats = new HashMap<>();
