@@ -33,3 +33,15 @@ You create a character, roll for your stats, and then make choices that decide h
 [ ] Allow user to check their status at will<br>
 [ ] Allow user to consume provisions at will<br>
 [ ] Validation<br>
+
+<h2>Project Structure</h2>
+<ul>
+  <li><code>Game.java</code> - Entry point, runs character creation then the story</li>
+  <li><code>CharacterCreation.java</code> - Name entry and stat rolling</li>
+  <li><code>Character.java</code> - The player: stats, gold, inventory, equipped weapon</li>
+  <li><code>Item.java</code> - Base class for carried items</li>
+  <li><code>Weapon.java</code> - An item with an <code>addedSkill</code> bonus</li>
+  <li><code>Potion.java</code> - An item with a <code>statChangeValue</code></li>
+  <li><code>Story.java</code> - The story scenes and choices</li>
+  <li><code>Misc.java</code> - Small helper output</li>
+</ul>
