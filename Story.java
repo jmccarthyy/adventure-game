@@ -45,12 +45,14 @@ public class Story {
                 //code - a creature is outside but you die because you have no way to defend yourself
                 System.out.println("You walk over to the door and open it...");
                 System.out.println("A zombie is at the door!");
+                System.out.println("Press enter to continue...");
                 System.out.println("====================");
                 storyScanner.nextLine();
                 System.out.println("It attacks you");
                 System.out.println("You have no way to fight back...");
                 System.out.println("The zombie mauls you to pieces...");
                 player.isDead = true;
+                return;
             } else{
                 System.out.println("That isn't a valid answer...");
                 System.out.println("====================");

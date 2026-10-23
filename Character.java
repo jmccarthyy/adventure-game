@@ -63,4 +63,15 @@ public class Character{
 
     }
 
+    public boolean deathCheck(){
+        if(this.isDead){
+            System.out.println("=================");
+            System.out.println("GAME OVER");
+            System.out.println("=================");
+            System.out.println("You have died...");
+            System.out.println("=================");
+            return true;
+        }
+        return false;
+    }
 }

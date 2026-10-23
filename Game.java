@@ -32,5 +32,9 @@ public class Game {
         
         story.storyIntro(player);
 
+        if(player.deathCheck()){
+            return;
+        }
+
     }   
 }
