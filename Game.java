@@ -5,7 +5,7 @@ public class Game {
     
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner inputScanner = new Scanner(System.in);
 
         //Start Game: 
         CharacterCreation characterCreation = new CharacterCreation();
@@ -26,7 +26,7 @@ public class Game {
         System.out.println("You have now created your character...");
         System.out.println("Press enter to begin your journey...");
         System.out.println("====================");
-        scanner.nextLine();
+        inputScanner.nextLine();
 
         Story story = new Story();
         
