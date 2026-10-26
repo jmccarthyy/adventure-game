@@ -53,7 +53,11 @@ public class Story {
                 System.out.println("The zombie mauls you to pieces...");
                 player.isDead = true;
                 return;
-            } else{
+            } else if (storyAnswer.equals("status")){
+                player.status();
+            }
+            
+            else{
                 System.out.println("That isn't a valid answer...");
                 System.out.println("====================");
             }
