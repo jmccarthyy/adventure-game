@@ -24,7 +24,10 @@ public class Story {
 
             storyAnswer = storyScanner.nextLine();
 
-            if(storyAnswer.equals("a")){
+            if(player.options(storyAnswer)){
+                //Command was handled in the player.options() method so loop keeps running
+                
+            } else if(storyAnswer.equals("a")){
                 validAnswer = true;
                 //code - you get dressed, pick up your sword, collect your 10 gold and put on your empty backpack
                 System.out.println("You walk over to the wardrobe and open it...");
@@ -53,11 +56,7 @@ public class Story {
                 System.out.println("The zombie mauls you to pieces...");
                 player.isDead = true;
                 return;
-            } else if (storyAnswer.equals("status")){
-                player.status();
-            }
-            
-            else{
+            } else{
                 System.out.println("That isn't a valid answer...");
                 System.out.println("====================");
             }
