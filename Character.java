@@ -13,8 +13,9 @@ public class Character{
     HashSet<Item> inventory;
     boolean isDead;
     Weapon weapon;
+    Scanner inputScanner;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<Item> inventory, boolean isDead, Weapon weapon) {
+    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<Item> inventory, boolean isDead, Weapon weapon, Scanner inputScanner) {
         this.name = name;
         this.playerHealth = playerHealth;
         this.playerSkill = playerSkill;
@@ -24,7 +25,7 @@ public class Character{
         this.inventory = inventory;
         this.isDead = isDead;
         this.weapon = weapon;
-
+        this.inputScanner = inputScanner;
     }
 
     public void showInventory(){
@@ -88,11 +89,33 @@ public class Character{
             return true;
         } else if(storyAnswer.equals("use")){
             //use
+            this.showInventory();
+            System.out.println("=================");
+            System.out.println("Which item would you like to use?");
+            System.out.println("=================");
+            //Scanner to get user input
+
             return true;
         } else if(storyAnswer.equals("provision")){
             //provision
+            Integer provisionNumber = 0;
+            System.out.println("=================");
+            System.out.println("You currently have" + this.provisions + "provisions");
+            System.out.println("=================");
+            System.out.println("How many would you like to eat?");
+            System.out.println("=================");
+            //provisionNumber = scanner input
+            if(provisionNumber >= this.provisions){
+                //Check they want to eat that number of provisions
+                //If health provided from provisions is higher than max possible base Health (their original roll), tell them and only allow them to eat as many as is allowed
+            } else{
+                System.out.println("You do not have enough provisions!");
+                System.out.println("=================");
+            }
+
             return true;
         } else if(storyAnswer.equals("commands")){
+            System.out.println("=================");
             System.out.println("The commands you can run are as follows:");
             System.out.println("=================");
             System.out.println("1). 'status' - typing status will show your charcater's current status, including your current Health, Skill, and Luck points, your gold, your provisions, your current inventory, and your equipped weapon");

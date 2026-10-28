@@ -8,7 +8,7 @@ public class Game {
         Scanner inputScanner = new Scanner(System.in);
 
         //Start Game: 
-        CharacterCreation characterCreation = new CharacterCreation();
+        CharacterCreation characterCreation = new CharacterCreation(inputScanner);
 
         characterCreation.nameCharacter();
 
@@ -17,9 +17,9 @@ public class Game {
         Weapon weapon = new Weapon("", 0);
 
         //New instance of Character class (uses the constructor):
-        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon);
+        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon, inputScanner);
 
-        Misc misc = new Misc();
+        Misc misc = new Misc(inputScanner);
 
         misc.characterCreated(player);
 
@@ -28,7 +28,7 @@ public class Game {
         System.out.println("====================");
         inputScanner.nextLine();
 
-        Story story = new Story();
+        Story story = new Story(inputScanner);
         
         story.storyIntro(player);
 

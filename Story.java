@@ -3,11 +3,13 @@ import java.util.HashMap;
 
 public class Story {
 
-    Scanner storyScanner = new Scanner(System.in);
-
+    Scanner inputScanner;
     String storyAnswer;
-
     boolean validAnswer = false;
+
+    public Story(Scanner inputScanner){
+        this.inputScanner = inputScanner;
+    }
 
     public void storyIntro(Character player) {
         
@@ -16,32 +18,33 @@ public class Story {
         System.out.println("====================");
         System.out.println("Press enter to continue...");
         System.out.println("====================");
-        storyScanner.nextLine();
+        inputScanner.nextLine();
         while(validAnswer == false){
             System.out.println("What do you do?");
             System.out.println("a). To open the wardrobe");
             System.out.println("b). To open the front door");
 
-            storyAnswer = storyScanner.nextLine();
+            storyAnswer = inputScanner.nextLine();
 
             if(player.options(storyAnswer)){
                 //Command was handled in the player.options() method so loop keeps running
-                
+
             } else if(storyAnswer.equals("a")){
                 validAnswer = true;
                 //code - you get dressed, pick up your sword, collect your 10 gold and put on your empty backpack
                 System.out.println("You walk over to the wardrobe and open it...");
-                System.out.println("You find clothes, a sword, an empty leather bag and a small bag containing 10 gold pieces");
+                System.out.println("You find clothes, a sword, 10 dry old oatcakes, a Potion of Healing, an empty leather bag and a small bag containing 10 gold pieces");
                 System.out.println("====================");
                 // here, need to add the gold pieces and weapon to your character
                 player.gold += 10;
+                player.provisions += 10;
                 Weapon sword = new Weapon("Sword", 1);
                 player.inventory.add(sword);
                 player.weapon = sword;
                 player.inventory.add(new Potion("a Potion of Healing", 10));
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                storyScanner.nextLine();
+                inputScanner.nextLine();
 
             } else if (storyAnswer.equals("b")){
                 validAnswer = true;
@@ -50,7 +53,7 @@ public class Story {
                 System.out.println("A zombie is at the door!");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                storyScanner.nextLine();
+                inputScanner.nextLine();
                 System.out.println("It attacks you");
                 System.out.println("You have no way to fight back...");
                 System.out.println("The zombie mauls you to pieces...");

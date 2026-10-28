@@ -2,7 +2,11 @@ import java.util.Scanner;
 
 public class Misc {
 
-    Scanner oneScanner = new Scanner(System.in);
+    Scanner inputScanner;
+
+    public Misc(Scanner inputScanner){
+        this.inputScanner = inputScanner;
+    }
 
     public void characterCreated(Character player) {
 
@@ -18,6 +22,6 @@ public class Misc {
 
         System.out.println("Press enter to continue...");
         System.out.println("====================");
-        oneScanner.nextLine();
+        inputScanner.nextLine();
     }
 }

@@ -4,8 +4,7 @@ import java.util.HashSet;
 
 public class CharacterCreation {
 
-    Scanner myScanner = new Scanner(System.in);
-
+    Scanner inputScanner;
     String playerName;
     String playerAnswer;
     boolean isHappy = false;
@@ -18,20 +17,24 @@ public class CharacterCreation {
     //Create and fill out Character Stats HashMap:
     HashMap<String, Integer> charStats = new HashMap<>();
 
+    public CharacterCreation(Scanner inputScanner){
+        this.inputScanner = inputScanner;
+    }
+
     public void nameCharacter() {
 
         System.out.println("Please enter your name brave traveller:");
 
         // Loop for player entering their name
         while(isHappy == false){
-            playerName = myScanner.nextLine();
+            playerName = inputScanner.nextLine();
             System.out.println("So your name is " + playerName + "?");
             System.out.println("=========");
             System.out.println("Enter y if this is right,");
             System.out.println("Enter anything else if this is wrong:");
             System.out.println("=========");
 
-            playerAnswer = myScanner.nextLine();
+            playerAnswer = inputScanner.nextLine();
 
             if(playerAnswer.equals("y")){
                 isHappy = true;
@@ -62,7 +65,7 @@ public class CharacterCreation {
             System.out.println("or enter r if you want me to roll the dice:");
             System.out.println("=========");
 
-            playerAnswer = myScanner.nextLine();
+            playerAnswer = inputScanner.nextLine();
 
             if(playerAnswer.equals("p")){
                 //Will need to ask if they're happy - if yes, save isHappy to true and will then need a new while loop to see if they're happy when entering their stats
@@ -72,11 +75,11 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 System.out.println("First, roll 1 of the dice to decide your Skill stat (this represents your combat strength)");
                 System.out.println("Enter the number below:");
-                String statAnswer = myScanner.nextLine();
+                String statAnswer = inputScanner.nextLine();
                 //Loop to see if they definitey want to add that number
                 //If so, and it passes validation to make sure it's actually a number:
                 Integer parsedSkill = Integer.parseInt(statAnswer);
@@ -87,13 +90,13 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 System.out.println("Next, roll 2 of the dice to decide your Health stat (this represents your character's health)");
                 System.out.println("Enter the first number below:");
-                String healthRollOne = myScanner.nextLine();
+                String healthRollOne = inputScanner.nextLine();
                 System.out.println("Enter the second number below:");
-                String healthRollTwo = myScanner.nextLine();
+                String healthRollTwo = inputScanner.nextLine();
                 //Loop to see if they definitey want to add that number
                 //If so, and it passes validation to make sure it's actually a number:
                 Integer parsedHealthAnswerOne = Integer.parseInt(healthRollOne);
@@ -105,10 +108,10 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 System.out.println("Finally, roll 1 of the dice to decide your Luck stat (this represents your character's luck in life)");
-                statAnswer = myScanner.nextLine();
+                statAnswer = inputScanner.nextLine();
                 Integer parsedLuck = Integer.parseInt(statAnswer);
                 Integer luckStat = parsedLuck + 6;
                 charStats.put("Luck", luckStat);
@@ -124,7 +127,7 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 //Dice roll simulation here:
                 System.out.println("First, let's roll for your Skill stat");
@@ -132,7 +135,7 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to roll...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 Integer skillDice = (int)(Math.random()* 6 + 1);
                 Integer skill = skillDice + 6;
@@ -142,13 +145,13 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 System.out.println("Next, let's roll for your Health stat");
                 System.out.println("====================");
                 System.out.println("Press enter to roll...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
                 Integer healthDiceOne = (int)(Math.random()* 6 + 1);
                 Integer healthDiceTwo = (int)(Math.random()* 6 + 1);
                 Integer health = (healthDiceOne + healthDiceTwo) + 12;
@@ -158,13 +161,13 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 System.out.println("Next, let's roll for your Luck stat");
                 System.out.println("====================");
                 System.out.println("Press enter to roll...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
                 Integer luckDice = (int)(Math.random()* 6 + 1);
                 Integer luck = luckDice + 6;
                 charStats.put("Luck", luck);
@@ -173,7 +176,7 @@ public class CharacterCreation {
                 System.out.println("====================");
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
-                myScanner.nextLine();
+                inputScanner.nextLine();
 
                 isHappy = true;
 
