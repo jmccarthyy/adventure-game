@@ -17,7 +17,7 @@ public class Game {
         Weapon weapon = new Weapon("", 0);
 
         //New instance of Character class (uses the constructor):
-        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon, inputScanner);
+        Character player = new Character(characterCreation.playerName, characterCreation.charStats.get("Health"), characterCreation.charStats.get("Max Health"), characterCreation.charStats.get("Skill"),characterCreation.charStats.get("Luck"), characterCreation.gold, characterCreation.provisions, characterCreation.inventory, characterCreation.isDead, weapon, inputScanner);
 
         Misc misc = new Misc(inputScanner);
 

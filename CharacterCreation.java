@@ -103,6 +103,7 @@ public class CharacterCreation {
                 Integer parsedHealthAnswerTwo = Integer.parseInt(healthRollTwo);
                 Integer finalHealthScore = (parsedHealthAnswerOne + parsedHealthAnswerTwo) + 12;
                 charStats.put("Health", finalHealthScore);
+                charStats.put("Max Health", finalHealthScore);
                 System.out.println("This means your Health stat is: " + charStats.get("Health"));
 
                 System.out.println("====================");
@@ -156,6 +157,7 @@ public class CharacterCreation {
                 Integer healthDiceTwo = (int)(Math.random()* 6 + 1);
                 Integer health = (healthDiceOne + healthDiceTwo) + 12;
                 charStats.put("Health", health);
+                charStats.put("Max Health", health);
                 System.out.println("You rolled a " + healthDiceOne + " and a " + healthDiceTwo + ", which means your Health stat is " + health);
 
                 System.out.println("====================");

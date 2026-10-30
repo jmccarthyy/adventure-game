@@ -6,6 +6,7 @@ public class Character{
 
     String name;
     Integer playerHealth;
+    Integer maxPossiblePlayerHealth;
     Integer playerSkill;
     Integer playerLuck;
     Integer gold;
@@ -15,9 +16,10 @@ public class Character{
     Weapon weapon;
     Scanner inputScanner;
 
-    public Character(String name, Integer playerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<Item> inventory, boolean isDead, Weapon weapon, Scanner inputScanner) {
+    public Character(String name, Integer playerHealth, Integer maxPossiblePlayerHealth, Integer playerSkill, Integer playerLuck, Integer gold, Integer provisions, HashSet<Item> inventory, boolean isDead, Weapon weapon, Scanner inputScanner) {
         this.name = name;
         this.playerHealth = playerHealth;
+        this.maxPossiblePlayerHealth = maxPossiblePlayerHealth;
         this.playerSkill = playerSkill;
         this.playerLuck = playerLuck;
         this.gold = gold;
@@ -49,7 +51,7 @@ public class Character{
         System.out.println("This is your status, as things stand:");
         System.out.println("=================");
         System.out.println("Your Name is " + this.name);
-        System.out.println("Your Health is " + this.playerHealth);
+        System.out.println("Your Health is " + this.playerHealth + "/" + this.maxPossiblePlayerHealth);
         System.out.println("Your Skill is " + this.playerSkill);
         System.out.println("Your Luck is " + this.playerLuck);
         System.out.println("You have " + this.gold + " gold");
@@ -89,30 +91,114 @@ public class Character{
             return true;
         } else if(storyAnswer.equals("use")){
             //use
-            this.showInventory();
-            System.out.println("=================");
-            System.out.println("Which item would you like to use?");
-            System.out.println("=================");
-            //Scanner to get user input
+            boolean useCheck = false;
+            Item itemCheck = null;
+            while(useCheck == false){
+                if(this.inventory.isEmpty()){
+                    System.out.println("You have nothing in your inventory to use!");
+                    useCheck = true;
+                } else{
+                    System.out.println("Your inventory:");
+                    for(Item item : this.inventory){
+                        System.out.println("- " + item.name);
+                    }
+                    System.out.println("=================");
+                    System.out.println("Which item would you like to use?");
+                    System.out.println("=================");
+                    String useAnswer = this.inputScanner.nextLine();
+                    for(Item item : this.inventory){
+                        if(useAnswer.equals(item.name)){
+                            itemCheck = item;
+                            if(item instanceof Potion potion){
+                                if(potion.isUseable == true){
+                                    System.out.println("So you want to use " + potion.name + "?");
+                                    System.out.println("=================");
+                                    System.out.println("type yes or no");
+                                    System.out.println("=================");
+                                    useAnswer = this.inputScanner.nextLine();
+                                    if(useAnswer.equals("yes")){
+                                        //Here, will need to check what type of item it is they are using
+                                        if(potion.statType.equals("Health")){
+                                            //ammend health
+                                            //remove item
+                                            //print message
+                                            useCheck = true;
+                                        } else if(potion.statType.equals("Skill")){
+                                            //ammend skill
+                                            //remove item
+                                            //print message
+                                            useCheck = true;
+                                        } else if(potion.statType.equals("Luck")){
+                                            //ammend luck
+                                            //remove item
+                                            //print message
+                                            useCheck = true;
+                                        }
+                                    } else{
+                                        System.out.println("=================");
+                                        System.out.println("You chose not to use the item");
+                                        useCheck = true;
+                                    }
+                                }
+                            } else{
+                                System.out.println("This item cannot be used!");
+                                useCheck = true;
+                            }
+                        }
+                    }
+                    if(itemCheck == null){
+                        System.out.println("That's not the name of an item you have!");
+                        useCheck = true;
+                    }
 
+                }
+            }
             return true;
         } else if(storyAnswer.equals("provision")){
             //provision
             Integer provisionNumber = 0;
-            System.out.println("=================");
-            System.out.println("You currently have" + this.provisions + "provisions");
-            System.out.println("=================");
-            System.out.println("How many would you like to eat?");
-            System.out.println("=================");
-            //provisionNumber = scanner input
-            if(provisionNumber >= this.provisions){
-                //Check they want to eat that number of provisions
-                //If health provided from provisions is higher than max possible base Health (their original roll), tell them and only allow them to eat as many as is allowed
-            } else{
-                System.out.println("You do not have enough provisions!");
+            Integer healingAmountAllowed = this.maxPossiblePlayerHealth - this.playerHealth;
+            Integer allowedProvisions = healingAmountAllowed / 4;
+            boolean provisionCheck = false;
+            while(provisionCheck == false){
                 System.out.println("=================");
+                System.out.println("You currently have " + this.provisions + " provisions");
+                System.out.println("The maximum provisions you can eat is " + allowedProvisions);
+                System.out.println("=================");
+                System.out.println("How many would you like to eat?");
+                System.out.println("=================");
+                String provisionAnswer = this.inputScanner.nextLine();
+                provisionNumber = Integer.parseInt(provisionAnswer);
+                Integer provisionHealingAmount = (provisionNumber * 4);
+                if(provisionNumber <= this.provisions){
+                    System.out.println("So you want to eat " + provisionNumber + " provisions?");
+                    System.out.println("=================");
+                    System.out.println("type yes or no");
+                    System.out.println("=================");
+                    provisionAnswer = this.inputScanner.nextLine();
+                    if(provisionAnswer.equals("yes")){
+                        if(provisionHealingAmount <= healingAmountAllowed){
+                            this.provisions -= provisionNumber;
+                            this.playerHealth += provisionHealingAmount;
+                            System.out.println("=================");
+                            System.out.println("You have eaten " + provisionNumber + " provisions, which leaves you with " + this.provisions);
+                            System.out.println("You have healed for " + provisionHealingAmount + " Health points, so your health is now " + this.playerHealth);
+                            System.out.println("=================");
+                            provisionCheck = true;
+                        } else{
+                            System.out.println("=================");
+                            System.out.println("You cannot heal more than your maximum Health Points allowance!");
+                        }
+                    } else{
+                        System.out.println("=================");
+                        System.out.println("You chose not to eat any provisions");
+                        provisionCheck = true;
+                    }
+                } else{
+                    System.out.println("You do not have enough provisions!");
+                    System.out.println("=================");
+                }
             }
-
             return true;
         } else if(storyAnswer.equals("commands")){
             System.out.println("=================");

@@ -41,7 +41,7 @@ public class Story {
                 Weapon sword = new Weapon("Sword", 1);
                 player.inventory.add(sword);
                 player.weapon = sword;
-                player.inventory.add(new Potion("a Potion of Healing", 10));
+                player.inventory.add(new Potion("a Potion of Healing", 10, "Health", true));
                 System.out.println("Press enter to continue...");
                 System.out.println("====================");
                 inputScanner.nextLine();
