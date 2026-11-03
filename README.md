@@ -24,14 +24,12 @@ You create a character, roll for your stats, and then make choices that decide h
 [X] Status screen<br>
 [X] Item system<br>
 [X] Game over on death<br>
+[X] Allow player to type commands that allow them to perform actions, such as eat provisions and use items, at will<br>
 
 <h4>Coming soon:</h4>
-[ ] Use potions<br>
 [ ] Combat System<br>
 [ ] More story scenes<br>
 [ ] Equip and swap weapons<br>
-[ ] Allow user to check their status at will<br>
-[ ] Allow user to consume provisions at will<br>
 [ ] Validation<br>
 
 <h2>Project Structure</h2>
