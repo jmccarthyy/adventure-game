@@ -93,6 +93,8 @@ public class Character{
             //use
             boolean useCheck = false;
             Item itemCheck = null;
+            boolean itemUsed = false;
+            Integer potentialStatChange;
             while(useCheck == false){
                 if(this.inventory.isEmpty()){
                     System.out.println("You have nothing in your inventory to use!");
@@ -119,19 +121,27 @@ public class Character{
                                     if(useAnswer.equals("yes")){
                                         //Here, will need to check what type of item it is they are using
                                         if(potion.statType.equals("Health")){
-                                            //ammend health
-                                            //remove item
-                                            //print message
+                                            potentialStatChange = this.playerHealth + potion.statChangeValue;
+                                            if(this.maxPossiblePlayerHealth > potentialStatChange){
+                                                this.playerHealth += potion.statChangeValue;
+                                            } else{
+                                                this.playerHealth = this.maxPossiblePlayerHealth;
+                                            }
+                                            System.out.println("You have used  " + potion.name + " and healed " + potion.statChangeValue + " health points, so your Health is now " + this.playerHealth + "!");
+                                            System.out.println("=================");
+                                            itemUsed = true;
                                             useCheck = true;
                                         } else if(potion.statType.equals("Skill")){
-                                            //ammend skill
-                                            //remove item
-                                            //print message
+                                            this.playerSkill += potion.statChangeValue;
+                                            System.out.println("You have used  " + potion.name + " and restored " + potion.statChangeValue + " skill points, so your Skill is now " + this.playerSkill + "!");
+                                            System.out.println("=================");
+                                            itemUsed = true;
                                             useCheck = true;
                                         } else if(potion.statType.equals("Luck")){
-                                            //ammend luck
-                                            //remove item
-                                            //print message
+                                            this.playerLuck += potion.statChangeValue;
+                                            System.out.println("You have used  " + potion.name + " and restored " + potion.statChangeValue + " luck points, so your Luck is now " + this.playerLuck + "!");
+                                            System.out.println("=================");
+                                            itemUsed = true;
                                             useCheck = true;
                                         }
                                     } else{
@@ -149,6 +159,10 @@ public class Character{
                     if(itemCheck == null){
                         System.out.println("That's not the name of an item you have!");
                         useCheck = true;
+                    }
+
+                    if(itemUsed == true){
+                        this.inventory.remove(itemCheck);
                     }
 
                 }
