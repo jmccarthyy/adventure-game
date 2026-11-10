@@ -121,13 +121,16 @@ public class Character{
                                     if(useAnswer.equals("yes")){
                                         //Here, will need to check what type of item it is they are using
                                         if(potion.statType.equals("Health")){
+                                            Integer amountHealed;
                                             potentialStatChange = this.playerHealth + potion.statChangeValue;
                                             if(this.maxPossiblePlayerHealth > potentialStatChange){
+                                                amountHealed = potion.statChangeValue;
                                                 this.playerHealth += potion.statChangeValue;
                                             } else{
+                                                amountHealed = this.maxPossiblePlayerHealth - this.playerHealth;
                                                 this.playerHealth = this.maxPossiblePlayerHealth;
                                             }
-                                            System.out.println("You have used  " + potion.name + " and healed " + potion.statChangeValue + " health points, so your Health is now " + this.playerHealth + "!");
+                                            System.out.println("You have used  " + potion.name + " and healed " + amountHealed + " health points, so your Health is now " + this.playerHealth + "!");
                                             System.out.println("=================");
                                             itemUsed = true;
                                             useCheck = true;
