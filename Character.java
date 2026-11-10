@@ -1,6 +1,5 @@
-import java.util.Scanner;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Character{
 
@@ -177,6 +176,11 @@ public class Character{
             Integer healingAmountAllowed = this.maxPossiblePlayerHealth - this.playerHealth;
             Integer allowedProvisions = healingAmountAllowed / 4;
             boolean provisionCheck = false;
+            if(this.provisions == 0){
+                System.out.println("=================");
+                System.out.println("You don't have any provisions to use...");
+                return true;
+            }
             while(provisionCheck == false){
                 System.out.println("=================");
                 System.out.println("You currently have " + this.provisions + " provisions");
@@ -187,6 +191,12 @@ public class Character{
                 String provisionAnswer = this.inputScanner.nextLine();
                 provisionNumber = Integer.parseInt(provisionAnswer);
                 Integer provisionHealingAmount = (provisionNumber * 4);
+                if(provisionNumber == 0){
+                    System.out.println("You didn't eat any provisions");
+                    System.out.println("Your health stays at " + this.playerHealth + " points");
+                    System.out.println("=================");
+                    provisionCheck = true;
+                }
                 if(provisionNumber <= this.provisions){
                     System.out.println("So you want to eat " + provisionNumber + " provisions?");
                     System.out.println("=================");
